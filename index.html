@@ -44,7 +44,7 @@
         .scanner {
             position: absolute; width: 100%; height: 2px;
             background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.08; top: 0;
+            opacity: 0.1; top: 0;
             animation: scan 8s linear infinite;
         }
         @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
@@ -60,7 +60,7 @@
         }
         .credit-footer a:hover { opacity: 1; text-decoration: underline; }
 
-        /* ── MAIN CARD ── */
+
         .main-card {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -89,7 +89,7 @@
         }
 
        
-        /* ── NAME SECTION ── */
+    
         .name-section { text-align: left; }
         .name-display {
             font-size: 2.1rem; font-weight: 700; letter-spacing: -0.5px;
@@ -102,7 +102,6 @@
             margin-top: 4px; letter-spacing: 1px;
         }
 
-        /* ── SOCIAL DOCK (inside card) ── */
         .social-dock {
             display: flex; gap: 15px;
             margin-top: 10px;
@@ -137,8 +136,8 @@
             <div class="name-display">flawlessaim</div>
             <div class="name-sub">welcome to my page</div>
             <div class="social-dock">
-                <a href="https://steamcommunity.com/id/flawless001" title="Steam"><i class="fa-brands fa-steam"></i></a>
-                <a href="https://kovaaks.com/kovaaks/profile?username=flawlessaim" title="Kovaaks"><i class="fa-solid fa-bullseye"></i></i></a>
+                <a href="https://steamcommunity.com/id/flawless001" target="_blank" title="Steam"><i class="fa-brands fa-steam"></i></a>
+                <a href="https://kovaaks.com/kovaaks/profile?username=flawlessaim" target="_blank" title="Kovaaks"><i class="fa-solid fa-bullseye"></i></i></a>
             </div>
         </div>
 
@@ -149,7 +148,7 @@
                 
                 <iframe data-testid="embed-iframe" style="border-radius:12px" 
                 src="https://open.spotify.com/embed/track/4ZjAfdKKRfibE5gVDkDCWs?utm_source=generator" 
-                width="100%" height="152" frameBorder="0" allowfullscreen="" 
+                width="100%" height="152" frameBorder="0" allowfullscreen="false" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
             </div>
