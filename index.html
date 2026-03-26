@@ -60,7 +60,6 @@
         }
         .credit-footer a:hover { opacity: 1; text-decoration: underline; }
 
-
         .main-card {
             position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -87,9 +86,6 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
             border-radius: 100%;
         }
-
-       
-    
         .name-section { text-align: left; }
         .name-display {
             font-size: 2.1rem; font-weight: 700; letter-spacing: -0.5px;
@@ -114,6 +110,18 @@
             color: var(--accent); transform: scale(1.2);
             text-shadow: 0 0 12px var(--accent);
         }
+        .view-counter {
+            display: flex; 
+            align-items: center;
+            margin-left: auto;
+            gap: 4px;
+            font-size: 0.4rem;
+            font-family: 'Space Mono', monospace;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+        .view-counter i { font-size: 0.5rem; color: var(--accent); opacity: 0.6; }
+        #viewCount { color: var(--accent); font-weight: 700; opacity: 0.85; }
 
         .divider {
             height: 1px;
@@ -138,8 +146,13 @@
             <div class="social-dock">
                 <a href="https://steamcommunity.com/id/flawless001" target="_blank" title="Steam"><i class="fa-brands fa-steam"></i></a>
                 <a href="https://kovaaks.com/kovaaks/profile?username=flawlessaim" target="_blank" title="Kovaaks"><i class="fa-solid fa-bullseye"></i></i></a>
+                <div class="view-counter">
+                    <i class="fa fa-eye"></i>
+                    <span id="viewCount">—</span>
+                    </div>
             </div>
         </div>
+    
 
         <div class="divider"></div>
 
@@ -170,6 +183,15 @@
             });
 
     })();
-    </script>
+        /* VIEW COUNTER */
+    fetch('https://counterapi.dev/api/flawlessaim-page/views/hit')
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById('viewCount').textContent = data.count.toLocaleString();
+        })
+        .catch(() => {
+            document.getElementById('viewCount').textContent = '—';
+        });
+        </script>
 </body>
 </html>
