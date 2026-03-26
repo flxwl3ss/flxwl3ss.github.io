@@ -110,18 +110,17 @@
             color: var(--accent); transform: scale(1.2);
             text-shadow: 0 0 12px var(--accent);
         }
-        .view-counter {
-            display: flex; 
-            align-items: center;
-            margin-left: auto;
-            gap: 4px;
-            font-size: 0.4rem;
-            font-family: 'Space Mono', monospace;
-            color: var(--text-dim);
-            letter-spacing: 1px;
-        }
-        .view-counter i { font-size: 0.5rem; color: var(--accent); opacity: 0.6; }
-        #viewCount { color: var(--accent); font-weight: 700; opacity: 0.85; }
+            .view-counter {
+                display: flex; 
+                align-items: center;
+                margin-left: auto;
+                gap: 6px;
+                font-size: 0.72rem;   /* ← was 0.4rem, way too small */
+                font-family: 'Space Mono', monospace;
+                color: var(--text-dim);
+                letter-spacing: 1px;
+            }
+            .view-counter i { font-size: 0.72rem; color: var(--accent); opacity: 0.6; }
 
         .divider {
             height: 1px;
@@ -183,14 +182,15 @@
 
     })();
         /* VIEW COUNTER */
-    fetch('https://counterapi.dev/api/flawlessaim-page/views/hit')
-        .then(r => r.json())
-        .then(data => {
-            document.getElementById('viewCount').textContent = data.count.toLocaleString();
-        })
-        .catch(() => {
-            document.getElementById('viewCount').textContent = '—';
-        });
-        </script>
+            fetch('https://api.counterapi.dev/v1/flawlessaim-page/views/up')
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('viewCount').textContent =
+                    (data.count ?? data.value ?? '—').toLocaleString();
+            })
+            .catch(() => {
+                document.getElementById('viewCount').textContent = '—';
+            });
+    </script>
 </body>
 </html>
